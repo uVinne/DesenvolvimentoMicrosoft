@@ -21,7 +21,14 @@ namespace VendasConsole
                 switch (opcao)
                 {
                     case 1:
+                        Cliente c = new Cliente();
                         Console.WriteLine(" -------- Cadastro de Clientes --------\n");
+                        Console.WriteLine("Digite o nome do cliente");
+                        c.Nome = Console.ReadLine();
+                        Console.WriteLine("Digite o cpf do cliente");
+                        c.Cpf = Console.ReadLine();
+
+                        Console.WriteLine($"Cliente: {c.Nome}, Cpf:{c.Cpf}");
                         break;
                     case 2:
                         Console.WriteLine(" -------- Lista de Clientes --------\n");
