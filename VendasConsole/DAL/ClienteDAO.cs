@@ -1,17 +1,22 @@
 ﻿using System.Collections.Generic;
 using VendasConsole.Models;
 
-
-
 namespace VendasConsole.DAL
 {
     class ClienteDAO
     {
         private static List<Cliente> clientes = new List<Cliente>();
-
         public static List<Cliente> Listar() => clientes;
-
-        public static Cliente BuscarPorCpf(string cpf)
+        public static bool Cadastrar(Cliente c)
+        {
+            if (BuscarCliente(c.Cpf) == null)
+            {
+                clientes.Add(c);
+                return true;
+            }
+            return false;
+        }
+        public static Cliente BuscarCliente(string cpf)
         {
             foreach (Cliente clienteCadastrado in clientes)
             {
@@ -19,19 +24,8 @@ namespace VendasConsole.DAL
                 {
                     return clienteCadastrado;
                 }
-
             }
             return null;
         }
-        public static bool Cadastrar(Cliente c)
-        {
-            if (BuscarPorCpf(c.Cpf) == null)
-            {
-                clientes.Add(c);
-                return true;
-            }
-            return false;
-        }
-
     }
 }

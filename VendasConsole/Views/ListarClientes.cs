@@ -8,13 +8,11 @@ namespace VendasConsole.Views
     {
         public static void Renderizar()
         {
-            Console.WriteLine(" -------- Lista de Clientes --------\n");
+            Console.WriteLine(" ---- LISTAR CLIENTES ---- \n");
             foreach (Cliente clienteCadastrado in ClienteDAO.Listar())
             {
                 Console.WriteLine(clienteCadastrado);
             }
-
         }
-
     }
 }

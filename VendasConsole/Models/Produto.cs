@@ -2,19 +2,20 @@
 
 namespace VendasConsole.Models
 {
-    class Vendedor
+    class Produto
     {
-        public Vendedor()
+        public Produto()
         {
             CriadoEm = DateTime.Now;
         }
         public string Nome { get; set; }
-        public string Cpf { get; set; }
+        public double Preco { get; set; }
+        public int Quantidade { get; set; }
         public DateTime CriadoEm { get; set; }
 
         public override string ToString()
         {
-            return $"Nome: {Nome} | CPF: {Cpf} | Criado em: {CriadoEm}";
+            return $"Nome: {Nome } | Preço: {Preco} | Quantidade: {Quantidade} | Criado em: {CriadoEm}";
         }
     }
 }
