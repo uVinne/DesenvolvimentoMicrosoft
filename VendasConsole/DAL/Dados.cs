@@ -8,23 +8,24 @@ namespace VendasConsole.DAL
         {
             Cliente cliente = new Cliente
             {
-                Nome = "Diogo Deconto",
-                Cpf = "05363419904"
+                Nome = "Vinicius",
+                Cpf = "12547575973"
             };
             ClienteDAO.Cadastrar(cliente);
             Vendedor vendedor = new Vendedor
             {
-                Nome = "José da Silva",
-                Cpf = "05363419904"
+                Nome = "Joao",
+                Cpf = "12547575973"
             };
             VendedorDAO.Cadastrar(vendedor);
             Produto produto = new Produto
             {
-                Nome = "Bolacha",
-                Preco = 3.75,
-                Quantidade = 150
+                Nome = "pao",
+                Preco = 1.10,
+                Quantidade = 20
             };
             ProdutoDAO.Cadastrar(produto);
+
         }
     }
 }

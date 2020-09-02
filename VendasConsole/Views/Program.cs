@@ -12,7 +12,7 @@ namespace VendasConsole.Views
             do
             {
                 Console.Clear();
-                Console.WriteLine(" ---- APLICAÇÃO DE VENDAS ---- \n");
+                Console.WriteLine(" ---- PROJETO DE VENDAS ---- \n");
                 Console.WriteLine("1 - Cadastrar cliente");
                 Console.WriteLine("2 - Listar clientes");
                 Console.WriteLine("3 - Cadastrar vendedor");
@@ -21,8 +21,9 @@ namespace VendasConsole.Views
                 Console.WriteLine("6 - Listar produtos");
                 Console.WriteLine("7 - Cadastrar venda");
                 Console.WriteLine("8 - Listar vendas");
+                Console.WriteLine("9 - Listar vendas por cliente");
                 Console.WriteLine("0 - Sair");
-                Console.WriteLine("\nDigite a opção desejada:");
+                Console.WriteLine("\nEscolha uma opção:");
                 opcao = Convert.ToInt32(Console.ReadLine());
                 Console.Clear();
                 switch (opcao)
@@ -49,16 +50,22 @@ namespace VendasConsole.Views
                         CadastrarVenda.Renderizar();
                         break;
                     case 8:
-                        ListarVendas.Renderizar();
+                        ListarVendas.Renderizar(VendaDAO.Listar());
+                        break;
+                    case 9:
+                        Console.Clear();
+                        Console.WriteLine("Digite o CPF do cliente: ");
+                        string cpf = Console.ReadLine();
+                        ListarVendas.Renderizar(VendaDAO.ListarPorCliente(cpf));
                         break;
                     case 0:
                         Console.WriteLine("Saindo...\n");
                         break;
                     default:
-                        Console.WriteLine(" ---- OPÇÃO INVÁLIDA!!! ---- \n");
+                        Console.WriteLine(" --- OPÇÃO INVÁLIDA!!! --- \n");
                         break;
                 }
-                Console.WriteLine("\nPressione uma tecla para continuar...");
+                Console.WriteLine("\nAperte uma tecla para continuar...");
                 Console.ReadKey();
             } while (opcao != 0);
         }

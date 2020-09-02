@@ -7,16 +7,7 @@ namespace VendasConsole.DAL
     {
         private static List<Cliente> clientes = new List<Cliente>();
         public static List<Cliente> Listar() => clientes;
-        public static bool Cadastrar(Cliente c)
-        {
-            if (BuscarCliente(c.Cpf) == null)
-            {
-                clientes.Add(c);
-                return true;
-            }
-            return false;
-        }
-        public static Cliente BuscarCliente(string cpf)
+        public static Cliente BuscarPorCpf(string cpf)
         {
             foreach (Cliente clienteCadastrado in clientes)
             {
@@ -26,6 +17,15 @@ namespace VendasConsole.DAL
                 }
             }
             return null;
+        }
+        public static bool Cadastrar(Cliente cliente)
+        {
+            if (BuscarPorCpf(cliente.Cpf) == null)
+            {
+                clientes.Add(cliente);
+                return true;
+            }
+            return false;
         }
     }
 }

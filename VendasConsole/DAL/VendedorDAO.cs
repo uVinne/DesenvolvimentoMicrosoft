@@ -9,7 +9,7 @@ namespace VendasConsole.DAL
 
         public static bool Cadastrar(Vendedor vendedor)
         {
-            if (BuscarVendedor(vendedor.Cpf) != null)
+            if (BuscarPorCpf(vendedor.Cpf) != null)
             {
                 return false;
             }
@@ -17,7 +17,7 @@ namespace VendasConsole.DAL
             return true;
         }
 
-        public static Vendedor BuscarVendedor(string cpf)
+        public static Vendedor BuscarPorCpf(string cpf)
         {
             foreach (Vendedor vendedorCadastrado in vendedores)
             {

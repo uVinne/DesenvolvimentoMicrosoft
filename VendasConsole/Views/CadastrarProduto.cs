@@ -12,9 +12,9 @@ namespace VendasConsole.Views
             Console.WriteLine(" ---- CADASTRAR PRODUTO ---- \n");
             Console.WriteLine("Digite o nome do produto:");
             p.Nome = Console.ReadLine();
-            Console.WriteLine("Digite o preço do cliente:");
+            Console.WriteLine("Digite o preço do produto:");
             p.Preco = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Digite a quantidade do cliente:");
+            Console.WriteLine("Digite a quantidade do produto:");
             p.Quantidade = Convert.ToInt32(Console.ReadLine());
             if (ProdutoDAO.Cadastrar(p))
             {

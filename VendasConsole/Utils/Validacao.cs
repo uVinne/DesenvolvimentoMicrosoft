@@ -4,14 +4,14 @@ namespace VendasConsole.Utils
 {
     class Validacao
     {
-        private static bool ValidarTamanhoCpf(string cpf) => cpf.Length == 11;
+        private static bool ValidarTamanhoCpf(string cpf) => cpf.Length != 11;
         public static bool ValidarCpf(string cpf)
         {
             int peso = 10, soma = 0, resto, digito1, digito2;
 
             cpf = cpf.Replace(".", "").Replace("-", "");
 
-            if (!ValidarTamanhoCpf(cpf))
+            if (ValidarTamanhoCpf(cpf))
             {
                 return false;
             }
@@ -29,28 +29,25 @@ namespace VendasConsole.Utils
                 case "99999999999": return false;
                 case "00000000000": return false;
             }
-            //Primeiro digito
+
+            //Digito1
             for (int i = 0; i < 9; i++)
             {
                 soma += Convert.ToInt32(cpf[i].ToString()) * peso;
                 peso--;
             }
             resto = soma % 11;
-            if (resto < 2)
-            {
-                digito1 = 0;
-            }
-            else
-            {
-                digito1 = 11 - resto;
-            }
+
+            digito1 = resto < 2 ? 0 : 11 - resto;
+
             if (Convert.ToInt32(cpf[9].ToString()) != digito1)
             {
                 return false;
             }
-            //Segundo digito
-            peso = 11;
+
+            //Digito2
             soma = 0;
+            peso = 11;
             for (int i = 0; i < 10; i++)
             {
                 soma += Convert.ToInt32(cpf[i].ToString()) * peso;

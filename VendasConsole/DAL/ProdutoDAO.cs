@@ -9,7 +9,7 @@ namespace VendasConsole.DAL
 
         public static bool Cadastrar(Produto produto)
         {
-            if (BuscarProduto(produto.Nome) != null)
+            if (BuscarPorNome(produto.Nome) != null)
             {
                 return false;
             }
@@ -17,7 +17,7 @@ namespace VendasConsole.DAL
             return true;
         }
 
-        public static Produto BuscarProduto(string nome)
+        public static Produto BuscarPorNome(string nome)
         {
             foreach (Produto produtoCadastrado in produtos)
             {
