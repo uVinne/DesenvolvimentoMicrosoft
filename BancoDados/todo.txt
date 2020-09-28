@@ -1,0 +1,11 @@
+﻿passo a passo entity framework core sql server code-first
+
+[x] instalar pacote --> Microsoft.EntityFrameworkCore.SqlServer
+[x] instalar pacote --> Microsoft.EntityFrameworkCore.Tools
+[x] Criar as classes de modelo
+[x] Criar classe que represente o EntityFramework no projeto (Context)
+[x] Mapear classes de modelo que vao virar tabelas no banco de dados
+[x] configurar a string de conexão com o banco de dados
+[x] toda vez que alterar estrutura no banco é necessario criar uma nova migraçao
+		add-migration nomeMigracao
+[x] para executar um migração é  nescessario rodar comando = update-database -verbose
